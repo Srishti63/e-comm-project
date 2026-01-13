@@ -6,6 +6,16 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import {ApiError} from "../utils/ApiError.js";
 import {ApiResponse} from "../utils/ApiResponse.js";
 
+const generateAcessandRefreshToken = async(userId)=>{
+    try { 
+        
+        
+    } catch(err){
+
+
+    }
+}
+
 const registerUser = asyncHandler(async (req, res) => {
 
   const { userName, fullName, email, password } = req.body;
@@ -15,7 +25,7 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 
   const existedUser = await User.findOne({
-    $or: [{ email }, { userName }]
+    $or: [{ email }, { userName }],
   });
 
   if (existedUser) {

@@ -39,5 +39,6 @@ const videoSchema = new Schema(
         timestamps: true,
     }
 )
+videoSchema.pluggin(mongooseAggregatePipeline)
 
 export const video = mongoose.model("video",videoSchema)

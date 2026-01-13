@@ -36,7 +36,7 @@ const userSchema = Schema(
             type : String,
         },
         watchHistory:{
-            type: Schema.Types.ObjectId(),
+            type: Schema.Types.ObjectId,
             ref : "video"
         },
         password:{
@@ -79,7 +79,7 @@ userSchema.methods.generateAcessToken = function () {
     )   
 }
 
-userSchema.methods.refreshToken = function () {
+userSchema.methods.generateAcessTokenrefreshToken = function () {
     return jwt.sign(
         {
             _id: this._id,
