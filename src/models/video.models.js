@@ -41,4 +41,4 @@ const videoSchema = new Schema(
 )
 videoSchema.pluggin(mongooseAggregatePipeline)
 
-export const video = mongoose.model("video",videoSchema)
+export const Video = mongoose.model("Video", videoSchema);

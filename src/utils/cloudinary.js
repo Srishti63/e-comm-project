@@ -1,5 +1,6 @@
 import { v2 as cloudinary } from "cloudinary";
 import fs from "fs";
+import { asyncHandler } from "./asyncHandler";
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -24,4 +25,18 @@ const uploadOnCloudinary = async(LocalFilePath)=>
         }
 }
 
-export { uploadOnCloudinary }
+const deleteVideoFromCloudinary = async(publicId , resuourceType= "video")=>
+    {
+        try {
+            return await cloudinary.uploader.destroy(publicId,{
+                resource_type : resuourceType
+            })
+        } catch (error) {
+            return null ;
+        }
+};
+
+export { 
+    uploadOnCloudinary,
+    deleteVideoFromCloudinary
+ }
